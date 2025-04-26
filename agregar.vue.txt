@@ -1,0 +1,14 @@
+fetch('http://localhost/backend/instrumentos.php', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    nombre: 'Guitarra Fender',
+    descripcion: 'Guitarra eléctrica clásica',
+    precio: 1200,
+    cantidadVendida: 10,
+    costoEnvio: 0,
+    imagen: 'fender.jpg'
+  })
+})
+.then(res => res.json())
+.then(data => console.log(data));

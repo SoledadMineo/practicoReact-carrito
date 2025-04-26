@@ -1,0 +1,136 @@
+  body{
+    background-color:#576378;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+  }
+  h1{
+    color: #c7bcac;
+  }
+.instrumento-item {
+    display: flex;
+    border-bottom: 1px solid #ccc;
+    padding: 16px;
+    align-items: center;
+    background-color: white;
+    margin-bottom: 10px;
+  }
+  
+  .contenedor-central {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .imagen-container {
+    flex: 0 0 auto;
+  }
+  
+  .instrumento-imagen {
+    width: 150px;
+    height: auto;
+    object-fit: contain;
+  }
+  
+  .info {
+    flex: 1;
+    text-align: left;
+  }
+  
+  .precio {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 8px 0;
+  }
+  
+  button {
+    background-color: #576378;
+  }
+
+  button:hover{
+    background-color: #a6a9b4;
+  }
+  
+.card {
+    width: 100%; 
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 250px; 
+    max-width: 300px; 
+    margin: 10px; 
+    box-sizing: border-box; 
+    border-radius: 16px;
+  }
+  
+  .d-flex {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    flex-wrap: wrap; /* Permite que el contenido se ajuste */
+    gap: 10px; /* Espaciado entre el contenido de la imagen y el texto */
+  }
+  
+  /* Aseguramos que la imagen no sea demasiado grande */
+  .card-img-container {
+    flex: 0 0 auto;
+    margin-right: 20px;
+    width: 100px; /* Ancho fijo de la imagen */
+    display: flex;
+    justify-content: center;
+  }
+  
+  .card-img-top {
+    width: 100%; /* La imagen ocupa todo el ancho de su contenedor */
+    height: auto;
+  }
+  
+  /* Cuerpo de la tarjeta */
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 1rem;
+    width: 100%;
+  }
+  
+  /* Títulos y texto */
+  .card-title, .card-text {
+    margin: 5px 0;
+  }
+  
+  /* Aseguramos que el cuerpo de la tarjeta tenga un tamaño mínimo adecuado */
+  .altura-cuerpo {
+    min-height: 250px;
+  }
+  
+  /* Control de la imagen */
+  .img-altura {
+    height: 200px; /* Ajusta la altura de las imágenes */
+  }
+  
+  /* Estilo para las imágenes de los envíos */
+  .card-text img {
+    width: 20px;
+    margin-right: 5px;
+  }
+  
+  .detalle {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 0.75rem; /* Ajustalo según prefieras */
+  }
+  
+  /* .buttonSinStock {
+    background-color: gainsboro;
+  }
+  
+  .buttonSinStock:hover {
+    background-color: red;
+  }
+   */
+  

@@ -1,0 +1,14 @@
+fetch('http://localhost/backend/instrumentos.php?id=1', {
+  method: 'PUT',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    nombre: 'Guitarra Fender Editada',
+    descripcion: 'Descripción nueva',
+    precio: 1350,
+    cantidadVendida: 12,
+    costoEnvio: 0,
+    imagen: 'fender-editada.jpg'
+  })
+})
+.then(res => res.json())
+.then(data => console.log(data));
