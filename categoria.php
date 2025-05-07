@@ -3,12 +3,12 @@
 if (isset($_SERVER['HTTP_ORIGIN'])) {
     header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
     header('Access-Control-Allow-Credentials: true');
-    header('Access-Control-Max-Age: 86400'); 
+    header('Access-Control-Max-Age: 86400');
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
     if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD']))
-        header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");         
+        header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
 
     if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']))
         header("Access-Control-Allow-Headers: {$_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']}");
@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 $host = "localhost";
 $usuario = "root";
 $clave = "";
-$baseDatos = "instrumentosdb"; 
+$baseDatos = "instrumentosdb";
 
 // Crear conexión
 $conexion = new mysqli($host, $usuario, $clave, $baseDatos);
@@ -51,7 +51,7 @@ $instrumentos = [];
 
 while ($row = $resultado->fetch_assoc()) {
     $row['id'] = (int)$row['id'];
-    $row['denominacion'] = (string)$row['denominacion']);
+    $row['denominacion'] = (string)$row['denominacion'];
     $categoria_instrumentos[] = $row;
 }
 
@@ -65,4 +65,3 @@ if ($id !== null && count($categoria_instrumentos) > 0) {
 }
 
 $conexion->close();
-?>

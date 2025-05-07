@@ -10,26 +10,21 @@ import InstrumentoGrilla from "./componentes/InstrumentoGrilla";
 
 function App() {
   return (
-    <div id="root">
-      <BrowserRouter>
-        <Menu />
-        <main>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="donde-estamos" element={<DondeEstamos />} />
-            <Route
-              path="listadoInstrumento"
-              element={<ListadoInstrumentos />}
-            />
-            <Route path="detalle/:id" element={<Instrumento />} />
-            <Route path="/grilla" element={<InstrumentoGrilla />} />
-            <Route path="/formulario/:id" element={<InstrumentoForm />} />
-            <Route path="*" element={<Home />} />
-          </Routes>
-        </main>
-        <Footer />
-      </BrowserRouter>
-    </div>
+    <BrowserRouter>
+      <Menu />
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="donde-estamos" element={<DondeEstamos />} />
+          <Route path="listadoInstrumento" element={<ListadoInstrumentos />} />
+          <Route path="detalle/:id" element={<Instrumento />} />
+          <Route path="/grilla" element={<InstrumentoGrilla />} />
+          <Route path="/formulario/:id" element={<InstrumentoForm />} />
+          <Route path="*" element={<Home />} />
+        </Routes>
+      </main>
+      <Footer />
+    </BrowserRouter>
   );
 }
 export default App;

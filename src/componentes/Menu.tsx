@@ -1,13 +1,14 @@
 // componentes/Menu.tsx
-import { Outlet } from "react-router-dom";
 import MenuOpciones from "./MenuOpciones";
+import { Carrito } from "./Carrito";
 
 function Menu() {
   return (
     <>
       <MenuOpciones />
-      <div className="container mt-4">
-        <Outlet />
+      <div className="col">
+        <b>Carrito de Compras</b>
+        <Carrito></Carrito>
       </div>
     </>
   );

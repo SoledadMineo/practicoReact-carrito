@@ -4,9 +4,12 @@ import "./app.css";
 import App from "./App";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import { CarritoContextProvider } from "./context/CarritoContext";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <App />
+    <CarritoContextProvider>
+      <App />
+    </CarritoContextProvider>
   </React.StrictMode>
 );

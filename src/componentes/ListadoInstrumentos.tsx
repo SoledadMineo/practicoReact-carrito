@@ -32,6 +32,7 @@ function ListadoInstrumentos() {
               cantidadVendida={datos.cantidadVendida}
               descripcion={datos.descripcion}
               initialHayStock={datos.initialHayStock}
+              instruObject={datos}
             />
           ))}
         </div>

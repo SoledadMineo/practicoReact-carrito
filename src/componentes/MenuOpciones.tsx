@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "../App.css"; // Asegúrate de ajustar la ruta si es necesario
+import "../App.css";
 
 function MenuOpciones() {
   return (

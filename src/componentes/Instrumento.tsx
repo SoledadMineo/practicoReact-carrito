@@ -10,9 +10,8 @@ function DetalleInstrumento() {
   const [instrumento, setInstrumento] = useState<Instrumento>();
 
   const getInstrumento = async () => {
-    const instrumentoSelect: Instrumento = await getInstrumentoXIdFecth(
-      Number(id)
-    );
+    const data: Instrumento = await getInstrumentoXIdFecth(Number(id));
+    const instrumentoSelect = Object.assign(new Instrumento(), data);
     setInstrumento(instrumentoSelect);
   };
   useEffect(() => {
@@ -75,7 +74,7 @@ function DetalleInstrumento() {
                 <strong>Costo Envío:</strong>
               </p>
               <div className="mb-3">
-                {instrumento.costoEnvio === 0 ? (
+                {instrumento.costoEnvio === "0" ? (
                   <>
                     <img
                       src="/images/camion.png"

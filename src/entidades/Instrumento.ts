@@ -1,3 +1,5 @@
+import { ChangeEventHandler } from "react";
+
 export default class Instrumento{
 
         id:number = 0;
@@ -11,4 +13,6 @@ export default class Instrumento{
         descripcion:string = "";
         initialHayStock= 0;
         idCategoria = 0;
+        //cantidad:number = 0;
+        addCarrito?:ChangeEventHandler;
 }
