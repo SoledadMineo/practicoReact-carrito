@@ -200,6 +200,130 @@ body {
   width: 50px;
   margin-right: 15px;
 }
+
+.cart {
+  margin-top: 60px; /* Ajustá según tu header */
+  position: fixed;
+  right: 0;
+  top: 70px; /* ajustá según tu header */
+  width: 300px;
+  background-color: #f5f5f5;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  border-radius: 8px 0 0 8px;
+  z-index: 1000;
+  font-family: sans-serif;
+}
+
+.cart-button {
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.cart-item {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
+
+.cart-item img {
+  border-radius: 4px;
+}
+
+.cart-item-details {
+  flex-grow: 1;
+}
+
+.cart-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+.cart-buttons button {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.cart-buttons button:hover {
+  background-color: #0056b3;
+}
+.producto-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.producto-img {
+  width: 60px;
+  height: auto;
+  border-radius: 8px;
+}
+.nombre-producto {
+  font-size: 15px;
+  font-weight: bold;
+}
+.precio {
+  color: #333;
+  font-weight: 600;
+}
+.envio {
+  color: #d32f2f; /* rojo */
+  font-size: 14px;
+}
+.botones-carrito {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn.limpiar {
+  background-color: #0056b3;
+  color: white;
+}
+
+.btn.limpiar:hover {
+  background-color: #d32f2f;
+  transform: scale(1.05);
+}
+
+.btn.comprar {
+  background-color: #4caf50;
+  color: white;
+}
+
+.btn.comprar:hover {
+  background-color: #388e3c;
+  transform: scale(1.05);
+}
+
 @keyframes fadeInOut {
   0% { opacity: 0; transform: translateY(20px); }
   10% { opacity: 1; transform: translateY(0); }

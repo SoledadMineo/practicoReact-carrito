@@ -1,53 +1,52 @@
 <?php
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
+header("Access-Control-Allow-Origin: http://localhost:5173");
+header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
-header("Content-Type: application/json");
+header('Content-Type: application/json'); // <-- Esto va al principio
 
 if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
     http_response_code(200);
     exit();
 }
 
+$raw_data = file_get_contents("php://input");
+error_log("Datos recibidos: " . $raw_data);
+
+$data = json_decode($raw_data, true);
+
+if (!is_array($data) || !isset($data['fechaPedido']) || !isset($data['totalPedido']) || !isset($data['detalles'])) {
+    http_response_code(400);
+    echo json_encode(["error" => "Formato inválido de datos"]);
+    exit();
+}
+
+$fecha = $data['fechaPedido'];
+$totalPedido = $data['totalPedido'];
+$detalles = $data['detalles'];
+
 $conexion = new mysqli("localhost", "root", "", "instrumentosdb");
 if ($conexion->connect_error) {
     http_response_code(500);
-    echo json_encode(["error" => "Error de conexión"]);
+    echo json_encode(["error" => "Conexión fallida: " . $conexion->connect_error]);
     exit();
 }
 
-$data = json_decode(file_get_contents("php://input"), true);
+// Insertar pedido
+$stmt_pedido = $conexion->prepare("INSERT INTO pedido (fechaPedido, totalPedido) VALUES (?, ?)");
+$stmt_pedido->bind_param("sd", $fecha, $totalPedido);
+$stmt_pedido->execute();
+$pedido_id = $stmt_pedido->insert_id;
+$stmt_pedido->close();
 
-if (!isset($data['instrumento']['id']) || !isset($data['cantidad'])) {
-    echo json_encode(["error" => "Datos incompletos"]);
-    exit();
+// Insertar detalles
+$stmt_detalle = $conexion->prepare("INSERT INTO pedidodetalle (pedido_id, instrumento_id, cantidad) VALUES (?, ?, ?)");
+foreach ($detalles as $item) {
+    $idInstrumento = intval($item['idInstrumento']);
+    $cantidad = intval($item['cantidad']);
+    $stmt_detalle->bind_param("iii", $pedido_id, $idInstrumento, $cantidad);
+    $stmt_detalle->execute();
 }
+$stmt_detalle->close();
 
-$instrumento_id = intval($data['instrumento']['id']);
-$cantidad = intval($data['cantidad']);
-$precio = floatval($data['instrumento']['precio']);
-$totalPedido = $precio * $cantidad;
-$fechaPedido = date('Y-m-d');
-
-// 1. Insertar el pedido
-$stmt = $conexion->prepare("INSERT INTO pedido (fechaPedido, totalPedido) VALUES (?, ?)");
-if (!$stmt) {
-    echo json_encode(["error" => "Error preparando la consulta de pedido: " . $conexion->error]);
-    exit();
-}
-$stmt->bind_param("sd", $fechaPedido, $totalPedido);
-$stmt->execute();
-$pedido_id = $stmt->insert_id;
-$stmt->close();
-
-// 2. Insertar el detalle del pedido
-$stmt_det = $conexion->prepare("INSERT INTO pedidodetalle (pedido_id, instrumento_id, cantidad) VALUES (?, ?, ?)");
-if (!$stmt_det) {
-    echo json_encode(["error" => "Error preparando la consulta de detalles: " . $conexion->error]);
-    exit();
-}
-$stmt_det->bind_param("iii", $pedido_id, $instrumento_id, $cantidad);
-$stmt_det->execute();
-$stmt_det->close();
-
-echo json_encode(["status" => "ok", "pedido_id" => $pedido_id]);
+// Devolver solo una respuesta JSON válida
+echo json_encode(["success" => true, "pedido_id" => $pedido_id]);

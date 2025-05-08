@@ -7,7 +7,6 @@ function Menu() {
     <>
       <MenuOpciones />
       <div className="col">
-        <b>Carrito de Compras</b>
         <Carrito></Carrito>
       </div>
     </>
