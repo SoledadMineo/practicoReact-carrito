@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@mercadopago/sdk-js": "^0.0.3",
+    "@mercadopago/sdk-react": "^1.0.3",
     "bootstrap": "^5.3.5",
     "cors": "^2.8.5",
     "react": "^19.0.0",
