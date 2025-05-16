@@ -9,6 +9,7 @@ export function getInstrumentosJSON(): Instrumento[] {
 export async function getInstrumentosJSONFetch() {
   const urlServe = 'http://localhost:8081/backend/instrumentos.php';
 
+  
   const response = await fetch(urlServe, {
     method: 'GET',
     mode: 'cors',
