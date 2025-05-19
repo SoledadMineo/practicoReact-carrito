@@ -84,3 +84,32 @@ export async function getInstrumentoXIdFecth(id: number) {
 	return await response.json();
   }
   
+  export async function getDatosChartLineFetch() {
+	const urlServe = 'http://localhost:8081/backend/barChart.php';
+	const response = await fetch(urlServe, {
+		method: 'GET',
+		headers: {
+			'Content-type': 'application/json',
+			'Access-Control-Allow-Origin':'*'
+		},
+		mode: 'cors'
+	});
+	console.log(response);
+	return await response.json();
+  }
+
+  export async function getDatosChartPieFetch() {
+	const urlServe = 'http://localhost:8081/backend/pieChart.php';
+	const response = await fetch(urlServe, {
+		method: 'GET',
+		headers: {
+			'Content-type': 'application/json',
+			'Access-Control-Allow-Origin':'*'
+		},
+		mode: 'cors'
+	});
+	console.log(response);
+	return await response.json();
+  }
+
+    

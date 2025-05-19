@@ -81,6 +81,11 @@ function MenuOpciones() {
                 Grilla
               </Link>
             </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/chartsGoogle">
+                Diagramas
+              </Link>
+            </li>
             <div className="user-container">
               <li className="nav-item">
                 <span className="nav-link">

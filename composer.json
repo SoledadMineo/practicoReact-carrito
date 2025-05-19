@@ -1,0 +1,15 @@
+{
+    "name": "mmineo/practico-react-carrito",
+    "autoload": {
+        "psr-4": {
+            "Mmineo\\PracticoReactCarrito\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "SoledadMineo",
+            "email": "marias.mineo@alumnos.frm.utn.edu.ar"
+        }
+    ],
+    "require": {}
+}

@@ -55,6 +55,7 @@ function App() {
             <Route path="/formulario/:id" element={<InstrumentoForm />} />
             //Ruta publica
             <Route path="*" element={<Home />} />
+            <Route path="/diagramas" element={<ChartsGoogle />} />
           </Routes>
         </Suspense>
       </main>
